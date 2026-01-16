@@ -30,8 +30,11 @@ function sortBikesByWeight(array){
     console.table(ligthestBike);
 
     for(const currentEl of array){
-
+        if (currentEl.peso < ligthestBike.peso){
+            ligthestBike.nome = currentEl.nome;
+            ligthestBike.peso = currentEl.peso;
+        }
     }
     
-
+    console.table(ligthestBike);
 }
