@@ -15,7 +15,8 @@ const soccerTeams = [
 
 console.table(soccerTeams);
 
-
+pointsAssigner(soccerTeams);
+console.table(soccerTeams)
 
 /**
  * dato un range genera un numero casuale contenuto nel range 
@@ -25,3 +26,22 @@ console.table(soccerTeams);
  * @returns {number} numero generato
  */
 function randomNumberGenerator(min,max) {return Math.floor(Math.random() * (max - min + 1) + min);} 
+
+/**
+ * dato un array di oggetti che contenga un indice 'punti fatti' ed un indice 'falli subiti' assegna i punti
+ * @param {object} array 
+ * @returns {object} ritorna l'array con i punti aggiornati
+ */
+function pointsAssigner(array){
+    for(const currentTeam of array){
+        let max = 100; // massimo del range per punti fatti
+        let min = 1; // minimo del range
+
+        currentTeam['punti fatti'] = randomNumberGenerator(min,max);
+
+        max = 20; // massimo del range per falli subiti
+
+        currentTeam['falli subiti'] = randomNumberGenerator(min,max);
+    }
+    return array;
+}
