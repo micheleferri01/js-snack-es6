@@ -16,7 +16,10 @@ const soccerTeams = [
 console.table(soccerTeams);
 
 pointsAssigner(soccerTeams);
-console.table(soccerTeams)
+console.table(soccerTeams);
+
+const onlySufferedFouls = generateArrayWithoutPointsMade(soccerTeams);
+console.table(onlySufferedFouls);
 
 /**
  * dato un range genera un numero casuale contenuto nel range 
@@ -44,4 +47,22 @@ function pointsAssigner(array){
         currentTeam['falli subiti'] = randomNumberGenerator(min,max);
     }
     return array;
+}
+
+/**
+ * dato un array di oggetti con all'interno almeno un indice 'punti fatti' e un indice 'falli subiti' genera un nuovo array di oggetti senza i 'punti fatti'
+ * @param {object} array array di oggetti con all'interno almeno un indice 'punti fatti' e un indice 'falli subiti'
+ * @returns {object} genera un nuovo array di oggetti senza i 'punti fatti'
+ */
+function generateArrayWithoutPointsMade(array){
+    const newArray = [];
+    for(const currentTeam of array){
+        newArray.push(currentTeam);
+    }
+
+    for(const currentTeam of newArray){
+        delete(currentTeam['punti fatti']);
+    }
+
+    return newArray;
 }
