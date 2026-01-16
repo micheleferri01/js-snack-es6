@@ -14,3 +14,14 @@ const soccerTeams = [
 ];
 
 console.table(soccerTeams);
+
+
+
+/**
+ * dato un range genera un numero casuale contenuto nel range 
+ * 
+ * @param {number} min  il minimo del range
+ * @param {number} max il massimo del range
+ * @returns {number} numero generato
+ */
+function randomNumberGenerator(min,max) {return Math.floor(Math.random() * (max - min + 1) + min);} 
