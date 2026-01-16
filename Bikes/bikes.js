@@ -14,3 +14,24 @@ const bikes = [
 ];
 
 console.table(bikes);
+
+sortBikesByWeight(bikes);
+
+function sortBikesByWeight(array){
+    
+    // variabile per salvare i dati della bici più leggera
+    const ligthestBike = {};
+
+    // assumo che il primo elemento dell'array sia il più piccolo e lo salvo
+    ligthestBike.nome = array[0].nome;
+    ligthestBike.peso = array[0].peso;
+
+    // controllo che sia stato salvato correttamente
+    console.table(ligthestBike);
+
+    for(const currentEl of array){
+
+    }
+    
+
+}
