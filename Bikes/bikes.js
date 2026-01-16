@@ -15,26 +15,37 @@ const bikes = [
 
 console.table(bikes);
 
-sortBikesByWeight(bikes);
+const theLightestBike = findLightestBike(bikes);
+console.table(theLightestBike);
 
-function sortBikesByWeight(array){
+/**
+ * Trova l'elemento più leggero dato un array di oggetti che al loro interno contengano almeno un  indice chiamato nome e un indice chiamato peso
+ * 
+ * @param {obeject} array un array di oggetti che contengano almeno un indice chiamato nome e un indice chiamato peso
+ * @returns {object} restituisce un oggetto con i dati dell'elemento più leggero nell'array di oggetti dato
+ */
+function findLightestBike(array){
     
-    // variabile per salvare i dati della bici più leggera
-    const ligthestBike = {};
+    // oggetto per salvare i dati della bici più leggera
+    const lightestBike = {};
 
     // assumo che il primo elemento dell'array sia il più piccolo e lo salvo
-    ligthestBike.nome = array[0].nome;
-    ligthestBike.peso = array[0].peso;
+    lightestBike.nome = array[0].nome;
+    lightestBike.peso = array[0].peso;
 
     // controllo che sia stato salvato correttamente
-    console.table(ligthestBike);
+    console.table(lightestBike);
 
+    // scorro tutti gli elementi dell'array
     for(const currentEl of array){
-        if (currentEl.peso < ligthestBike.peso){
-            ligthestBike.nome = currentEl.nome;
-            ligthestBike.peso = currentEl.peso;
+
+        // condizione che aggiorna l'oggetto lightestBike solo quando trova un'elemento con un peso minore
+        if (currentEl.peso < lightestBike.peso){
+            lightestBike.nome = currentEl.nome;
+            lightestBike.peso = currentEl.peso;
         }
     }
     
-    console.table(ligthestBike);
+
+    return lightestBike;
 }
