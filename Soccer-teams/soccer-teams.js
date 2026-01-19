@@ -21,6 +21,8 @@ console.table(soccerTeams);
 const onlySufferedFouls = generateArrayWithoutPointsMade(soccerTeams);
 console.table(onlySufferedFouls);
 
+console.table(soccerTeams);
+
 /**
  * dato un range genera un numero casuale contenuto nel range 
  * 
@@ -57,11 +59,10 @@ function pointsAssigner(array){
 function generateArrayWithoutPointsMade(array){
     const newArray = [];
     for(const currentTeam of array){
-        newArray.push(currentTeam);
-    }
-
-    for(const currentTeam of newArray){
-        delete(currentTeam['punti fatti']);
+        newArray.push({
+            'nome squadra': currentTeam['nome squadra'],
+            'falli subiti': currentTeam['falli subiti']
+        });
     }
 
     return newArray;
